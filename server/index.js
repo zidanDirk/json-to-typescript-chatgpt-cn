@@ -7,8 +7,8 @@ const { Configuration, OpenAIApi } = require("openai");
 const app = express();
 const PORT = 4000;
 dotenv.config()
-
 const GPT_API_KEY = process.env.GPT_API_KEY
+
 
 if (!GPT_API_KEY) {
     console.log("请配置 ChatGPT API Key")
