@@ -1,13 +1,22 @@
 //👇🏻index.js
 const express = require("express");
 const cors = require("cors");
+const dotenv = require('dotenv')
 const { Configuration, OpenAIApi } = require("openai");
 
 const app = express();
 const PORT = 4000;
+dotenv.config()
+
+const GPT_API_KEY = process.env.GPT_API_KEY
+
+if (!GPT_API_KEY) {
+    console.log("请配置 ChatGPT API Key")
+    return
+}
 
 const configuration = new Configuration({
-    apiKey: "<你的 API 密钥>",
+    apiKey: GPT_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
